@@ -1,0 +1,6 @@
+framework module XWSDK {
+  umbrella header "XWSDK.h"
+
+  export *
+  module * { export * }
+}
