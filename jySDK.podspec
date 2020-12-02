@@ -65,7 +65,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "8.0"
+   spec.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -91,10 +91,10 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "jySDK/**/**/*.{h}"
+   spec.source_files  = "jySDK/XWSDK.framework/Headers/*.{h}"
   # spec.source_files  = "jySDK/frameworks/*.{framework}"
   # spec.exclude_files = "jySDK"
-
+	
   # spec.public_header_files = "Classes/**/*.h"
 
 
@@ -119,12 +119,16 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
+  # spec.frameworks = "account_login_sdk_core", "EAccountHYSDK", "TYRZSDK", "XWSDK"
 
   # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
+   spec.libraries = "c++.1", "sqlite3.0", "z.1.2.8"
 
 
+spec.vendored_frameworks = "jySDK/account_login_sdk_core.framework", "jySDK/EAccountHYSDK.framework", "jySDK/TYRZSDK.framework", "jySDK/XWSDK.framework"
+
+
+spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash
